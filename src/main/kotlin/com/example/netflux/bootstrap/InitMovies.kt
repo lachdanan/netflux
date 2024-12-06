@@ -18,6 +18,6 @@ class InitMovies(val movieRepository: MovieRepository) : CommandLineRunner {
                 .flatMap {
                     movieRepository.save(it)
                 })
-            .subscribe(null, null) { movieRepository.findAll().subscribe { println(it) } }
+            .subscribe(null, null) { movieRepository.findAll().subscribe { println(it.id + ", " + it.title) } }
     }
 }
